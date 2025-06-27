@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ta-Te-Ti Futbolero</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="toast-container"></div>
+
+    <div class="container">
+        <header class="game-header">
+            <h1>Ta-Te-Ti Futbolero</h1>
+            <p>Edición Uruguay 🇺🇾</p>
+        </header>
+
+        <main id="game-area">
+            <div id="game-board">
+                <!-- El tablero se generará aquí con JavaScript -->
+            </div>
+            <div class="game-info">
+                <div id="game-status">Cargando...</div>
+                <div id="timer">Tiempo: 45s</div>
+                <div class="game-buttons">
+                    <button id="reset-button">Nueva Partida</button>
+                    <button id="skip-button">Saltar Turno</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="game-footer">
+            <p>Creado con HTML, CSS y JavaScript.</p>
+        </footer>
+    </div>
+
+    <!-- Dialogo para ingresar jugador (oculto por defecto) -->
+    <div id="player-input-dialog" class="dialog-overlay hidden">
+        <div class="dialog-content">
+            <form id="player-input-form">
+                <h2>Ingresar Jugador</h2>
+                <p>Escribe el nombre de un jugador que cumpla ambas condiciones.</p>
+                <input type="text" id="player-name-input" placeholder="Ej: Luis Suárez" required autocomplete="off">
+                <div class="dialog-buttons">
+                    <button type="button" id="cancel-button">Cancelar</button>
+                    <button type="submit">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
