@@ -49,8 +49,6 @@ Este proyecto es una Aplicación de Internet Rica (RIA) que reimagina el clásic
 -   **Efectos de Sonido**: Incorporar sonidos para eventos clave como hacer una jugada, ganar, perder o cuando el tiempo se está acabando.
 -   **Modo Oscuro/Claro**: Implementar un interruptor para que el usuario pueda elegir entre diferentes temas visuales.
 
-
-
 ## 👥 Integrantes
 
 1. Felipe Masliah
