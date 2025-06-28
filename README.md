@@ -65,3 +65,12 @@ TicTacToeRia/
 -   **Autocompletado de Jugadores**: Mejorar el campo de texto para que sugiera nombres de la base de datos a medida que el usuario escribe.
 -   **Efectos de Sonido**: Incorporar sonidos para eventos clave como hacer una jugada, ganar, perder o cuando el tiempo se está acabando.
 -   **Modo Oscuro/Claro**: Implementar un interruptor para que el usuario pueda elegir entre diferentes temas visuales.
+
+
+
+
+## 👥 Integrantes
+
+1. Felipe Masliah
+2. Franco Pirotto
+3. Matias bidarte
