@@ -1,7 +1,7 @@
 # Proyecto RIA: Ta-Te-Ti Futbolero
 ![TicTacToe](/ticTacToe.png)
 
-Este es un proyecto de una Aplicación de Internet Rica (RIA) que reinventa el clásico juego del Ta-Te-Ti (Tic-Tac-Toe) con una temática de fútbol. En lugar de simplemente colocar una "X" o una "O", los jugadores deben nombrar a un futbolista que cumpla con las dos categorías que se cruzan en la casilla seleccionada (una de la fila y otra de la columna).
+Este proyecto es una Aplicación de Internet Rica (RIA) que reimagina el clásico juego del Ta-Te-Ti (Tic-Tac-Toe) con una temática centrada en el fútbol sudamericano. Inspirado en experiencias como Futbol11Grid y otros formatos interactivos de trivia futbolera.
 
 
 
@@ -35,24 +35,7 @@ Este es un proyecto de una Aplicación de Internet Rica (RIA) que reinventa el c
 
 ## 📂 Estructura del Proyecto
 
-\`\`\`
-TicTacToeRia/
-├── js/
-│   └── app.js          # Contiene toda la lógica, datos y UI del juego
-├── public/
-│   └── assets/
-│       ├── afa.png
-│       ├── auf.png
-│       ├── laliga.png
-│       ├── premier.png
-│       ├── seriea.png
-│       └── sudamericana.png
-├── styles/
-│   └── styles.css      # Estilos visuales del juego
-├── index.html  # Archivo Principal 
-│   
-└── README.md           # Este archivo
-\`\`\`
+![Estructura_proyecto](/Estructura_proyecto.png)
 
 
 
@@ -65,3 +48,11 @@ TicTacToeRia/
 -   **Autocompletado de Jugadores**: Mejorar el campo de texto para que sugiera nombres de la base de datos a medida que el usuario escribe.
 -   **Efectos de Sonido**: Incorporar sonidos para eventos clave como hacer una jugada, ganar, perder o cuando el tiempo se está acabando.
 -   **Modo Oscuro/Claro**: Implementar un interruptor para que el usuario pueda elegir entre diferentes temas visuales.
+
+
+
+## 👥 Integrantes
+
+1. Felipe Masliah
+2. Franco Pirotto
+3. Matias bidarte

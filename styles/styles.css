@@ -55,11 +55,12 @@ body {
 
 #game-board {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
-  grid-template-rows: 1fr 2fr 2fr 2fr;
+  /* Fixed size for headers, flexible for the rest */
+  grid-template-columns: 130px repeat(3, 1fr);
+  grid-template-rows: 130px repeat(3, 1fr);
   gap: 0.5rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px; /* Increased max-width for better layout */
   aspect-ratio: 1 / 1;
 }
 
@@ -71,24 +72,25 @@ body {
   align-items: center;
   padding: 0.5rem;
   flex-direction: column;
+  text-align: center;
 }
 
 .header-cell {
   font-weight: bold;
-  text-align: center;
 }
 
 .header-cell img {
-  width: 60%;
-  max-width: 60px;
+  width: 50%;
+  max-width: 50px;
   height: auto;
   object-fit: contain;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .header-cell .header-text {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-muted-color);
+  line-height: 1.2;
 }
 
 .square {
@@ -97,6 +99,7 @@ body {
   font-weight: bold;
   transition: background-color 0.2s ease;
   border: 2px solid transparent;
+  line-height: 1;
 }
 
 .square:hover:not(.filled) {
@@ -136,7 +139,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--timer-color);
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #timer.low-time {
@@ -158,7 +161,7 @@ body {
   background-color: var(--secondary-cell-color);
   color: var(--text-color);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .game-buttons button#reset-button {
@@ -167,7 +170,8 @@ body {
 }
 
 .game-buttons button:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.15);
+  transform: translateY(-2px);
 }
 
 .game-footer {
@@ -176,7 +180,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Estilo de dialogo */
+/* Dialog Styles */
 .dialog-overlay {
   position: fixed;
   top: 0;
@@ -247,7 +251,7 @@ body {
   display: none;
 }
 
-/* notificaciones toast */
+/* Toast Notification */
 #toast-container {
   position: fixed;
   top: 1rem;
@@ -267,24 +271,55 @@ body {
 }
 .toast.success {
   background-color: #166534;
-} /* verde 800 */
+} /* Green 800 */
 .toast.error {
   background-color: #991b1b;
-} /* rojo 800 */
+} /* Red 800 */
 .toast.info {
   background-color: var(--info-color);
 }
 
+
+.project-label {
+  border: 2px dashed var(--border-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.project-label span {
+  transform: rotate(-10deg);
+  display: inline-block;
+}
+
+
+.square-symbol {
+  font-size: 2.5rem; 
+  line-height: 1;
+}
+
+.player-name-label {
+  font-size: 0.7rem;
+  font-weight: normal;
+  color: var(--text-muted-color);
+  margin-top: 4px;
+  text-transform: capitalize;
+  opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  #game-area {
-    flex-direction: column;
+  #game-board {
+    grid-template-columns: 100px repeat(3, 1fr);
+    grid-template-rows: 100px repeat(3, 1fr);
+    max-width: 100%;
   }
   .header-cell .header-text {
     font-size: 0.8rem;
   }
   .header-cell img {
-    width: 70%;
     max-width: 40px;
   }
   .square {
