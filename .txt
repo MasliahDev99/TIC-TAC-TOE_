@@ -1,0 +1,151 @@
+endpoint countries
+get("https://v3.football.api-sports.io/countries?name=uruguay");
+
+get("https://v3.football.api-sports.io/countries?code=uy");
+
+
+enpoint leagues
+
+get("https://v3.football.api-sports.io/leagues?name=premier league");
+
+// Get all leagues from one {country}
+// You can find the available {country} by using the endpoint country
+get("https://v3.football.api-sports.io/leagues?country=uruguay");
+
+// Get the last 99 leagues or cups added to the API
+get("https://v3.football.api-sports.io/leagues?last=99");
+
+
+// It’s possible to make requests by mixing the available parameters
+get("https://v3.football.api-sports.io/leagues?season=2019&country=england&type=league");
+get("https://v3.football.api-sports.io/leagues?team=85&season=2019");
+get("https://v3.football.api-sports.io/leagues?id=61¤t=true&type=league");
+
+
+
+Endpoint de teams
+
+// Get one team from one team {id}
+get("https://v3.football.api-sports.io/teams?id=33");
+
+// Get one team from one team {name}
+get("https://v3.football.api-sports.io/teams?name=manchester united");
+
+// Get all teams from one {league} & {season}
+get("https://v3.football.api-sports.io/teams?league=39&season=2019");
+
+// Get teams from one team {country}
+get("https://v3.football.api-sports.io/teams?country=england");
+
+// Get teams from one team {code}
+get("https://v3.football.api-sports.io/teams?code=FRA");
+
+// Get teams from one venue {id}
+get("https://v3.football.api-sports.io/teams?venue=789");
+
+// Allows you to search for a team in relation to a team {name} or {country}
+get("https://v3.football.api-sports.io/teams?search=manches");
+get("https://v3.football.api-sports.io/teams?search=England");
+
+
+endpoint de team information
+
+// Get one team from one team {id}
+get("https://v3.football.api-sports.io/teams?id=33");
+
+// Get one team from one team {name}
+get("https://v3.football.api-sports.io/teams?name=manchester united");
+
+// Get all teams from one {league} & {season}
+get("https://v3.football.api-sports.io/teams?league=39&season=2019");
+
+// Get teams from one team {country}
+get("https://v3.football.api-sports.io/teams?country=england");
+
+// Get teams from one team {code}
+get("https://v3.football.api-sports.io/teams?code=FRA");
+
+// Get teams from one venue {id}
+get("https://v3.football.api-sports.io/teams?venue=789");
+
+// Allows you to search for a team in relation to a team {name} or {country}
+get("https://v3.football.api-sports.io/teams?search=manches");
+get("https://v3.football.api-sports.io/teams?search=England");
+
+
+
+jugadores
+
+// Get all seasons available for players endpoint
+get("https://v3.football.api-sports.io/players/seasons");
+
+// Get all seasons available for a player {id}
+get("https://v3.football.api-sports.io/players/seasons?player=276");
+
+
+--
+// Get data from one {player}
+get("https://v3.football.api-sports.io/players/profiles?player=276");
+
+// Allows you to search for a player in relation to a player {lastname}
+get("https://v3.football.api-sports.io/players/profiles?search=ney");
+
+// Get all available Players (limited to 250 results, use the pagination for next ones)
+get("https://v3.football.api-sports.io/players/profiles");
+get("https://v3.football.api-sports.io/players/profiles?page=2");
+get("https://v3.football.api-sports.io/players/profiles?page=3");
+
+
+--
+// Get all players statistics from one player {id} & {season}
+get("https://v3.football.api-sports.io/players?id=19088&season=2018");
+
+// Get all players statistics from one {team} & {season}
+get("https://v3.football.api-sports.io/players?season=2018&team=33");
+get("https://v3.football.api-sports.io/players?season=2018&team=33&page=2");
+
+// Get all players statistics from one {league} & {season}
+get("https://v3.football.api-sports.io/players?season=2018&league=61");
+get("https://v3.football.api-sports.io/players?season=2018&league=61&page=4");
+
+// Get all players statistics from one {league}, {team} & {season}
+get("https://v3.football.api-sports.io/players?season=2018&league=61&team=33");
+get("https://v3.football.api-sports.io/players?season=2018&league=61&team=33&page=5");
+
+// Allows you to search for a player in relation to a player {name}
+get("https://v3.football.api-sports.io/players?team=85&search=cavani");
+get("https://v3.football.api-sports.io/players?league=61&search=cavani");
+get("https://v3.football.api-sports.io/players?team=85&search=cavani&season=2018");
+
+// Get all teams from one {player}
+get("https://v3.football.api-sports.io/players/teams?player=276");
+
+("https://v3.football.api-sports.io/players/topscorers?season=2018&league=61")
+
+
+("https://v3.football.api-sports.io/players/topyellowcards?season=2020&league=61")
+("https://v3.football.api-sports.io/players/topredcards?season=2020&league=61")
+
+
+trophies
+
+// Get all trophies from one {player}
+get("https://v3.football.api-sports.io/trophies?player=276");
+
+// Get all trophies from several {player} ids
+get("https://v3.football.api-sports.io/trophies?players=276-278");
+
+// Get all trophies from one {coach}
+get("https://v3.football.api-sports.io/trophies?coach=2");
+
+// Get all trophies from several {coach} ids
+get("https://v3.football.api-sports.io/trophies?coachs=2-6");
+
+
+
+
+// Get all transfers from one {player}
+get("https://v3.football.api-sports.io/transfers?player=35845");
+
+// Get all transfers from one {team}
+get("https://v3.football.api-sports.io/transfers?team=463");

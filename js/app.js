@@ -6,7 +6,7 @@ $(document).ready(() => {
   // GAME DATA
   // =================================
   const GameData = {
-    allCategories: [
+    allCategories: [  
       // Equipos Uruguayos
       { name: "Nacional", id: "nacional", image: "../public/assets/nacional.png" },
       { name: "Peñarol", id: "penarol", image: "../public/assets/penarol.png" },
@@ -175,9 +175,215 @@ $(document).ready(() => {
         "debut_xxi",
         "zurdo",
       ],
-      "matias vecino": ["nacional", "vendido_europa", "serie_a", "uruguay_nt", "campeon_uruguayo", "debut_xxi"],
+      "matias vecino": [
+        "nacional",
+        "serie_a",
+        "uruguay_nt",
+        "vendido_europa",
+        "debut_xxi",
+      ],
       "josema gimenez": ["danubio", "vendido_europa", "laliga", "uruguay_nt", "debut_xxi", "pos_defensor"],
       "lucas torreira": ["wanderers", "vendido_europa", "serie_a", "laliga", "uruguay_nt", "debut_xxi"],
+      // Nuevos jugadores agregados
+      "fernando muslera": [
+        "nacional",
+        "vendido_europa",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "debut_xxi",
+      ],
+      "darwin nuñez": [
+        "penarol",
+        "vendido_europa",
+        "uruguay_nt",
+        "pos_delantero",
+        "debut_xxi",
+      ],
+      "rodrigo bentancur": [
+        "danubio",
+        "vendido_europa",
+        "serie_a",
+        "uruguay_nt",
+        "debut_xxi",
+      ],
+      "georgian de arrascaeta": [
+        "defensor",
+        "uruguay_nt",
+        "libertadores",
+        "brasil",
+        "debut_xxi",
+      ],
+      "matias vecino": [
+        "nacional",
+        "serie_a",
+        "uruguay_nt",
+        "vendido_europa",
+        "debut_xxi",
+      ],
+      "nico de la cruz": [
+        "liverpool",
+        "uruguay_nt",
+        "libertadores",
+        "liga_argentina",
+        "debut_xxi",
+      ],
+      "sergio rochet": [
+        "nacional",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "debut_xxi",
+      ],
+      "facundo pellistri": [
+        "penarol",
+        "uruguay_nt",
+        "vendido_europa",
+        "debut_xxi",
+      ],
+      "facundo torres": [
+        "penarol",
+        "uruguay_nt",
+        "vendido_europa",
+        "debut_xxi",
+      ],
+      "brian rodriguez": [
+        "penarol",
+        "uruguay_nt",
+        "vendido_europa",
+        "debut_xxi",
+      ],
+      "martin satriano": [
+        "nacional",
+        "uruguay_nt",
+        "serie_a",
+        "vendido_europa",
+        "debut_xxi",
+      ],
+      
+      "andres scotti": [
+        "nacional",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "pos_defensor",
+      ],
+      "egidio arevalo rios": [
+        "penarol",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "brasil",
+        "liga_argentina",
+        "debut_xxi",
+      ],
+      "diego lugano": [
+        "nacional",
+        "uruguay_nt",
+        "pos_defensor",
+        "brasil",
+        "vendido_europa",
+        "goles_seleccion",
+      ],
+      "martin silva": [
+        "defensor",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "libertadores",
+        "debut_xxi",
+      ],
+      "jorge fucile": [
+        "nacional",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "debut_xxi",
+        "pos_defensor",
+      ],
+      "sebastian coates": [
+        "nacional",
+        "uruguay_nt",
+        "pos_defensor",
+        "vendido_europa",
+        "campeon_uruguayo",
+        "debut_xxi",
+      ],
+      "guillermo varela": [
+        "penarol",
+        "uruguay_nt",
+        "debut_xxi",
+        "vendido_europa",
+        "pos_defensor",
+      ],
+      "diego rossi": [
+        "penarol",
+        "uruguay_nt",
+        "vendido_europa",
+        "debut_xxi",
+        "pos_delantero",
+      ],
+      "jonathan rodriguez": [
+        "penarol",
+        "uruguay_nt",
+        "vendido_europa",
+        "campeon_uruguayo",
+        "pos_delantero",
+        "debut_xxi",
+      ],
+      "nicolas de la cruz": [
+        "liverpool",
+        "uruguay_nt",
+        "liga_argentina",
+        "libertadores",
+        "debut_xxi",
+      ],
+      "mauricio pereyra": [
+        "nacional",
+        "vendido_europa",
+        "debut_xxi",
+      ],
+      "rodrigo lopez": [
+        "danubio",
+        "goles_clasicos",
+        "liga_argentina",
+        "pos_delantero",
+      ],
+      "pablo garcia": [
+        "peñarol",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "serie_a",
+        "vendido_europa",
+        "zurdo",
+      ],
+      "richard morales": [
+        "nacional",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "goles_seleccion",
+        "pos_delantero",
+      ],
+      "gonzalo de los santos": [
+        "penarol",
+        "uruguay_nt",
+        "laliga",
+        "campeon_uruguayo",
+      ],
+      "nicolas oliva": [
+        "danubio",
+        "pos_defensor",
+        "campeon_uruguayo",
+      ],
+      "ignacio laquintana": [
+        "defensor",
+        "debut_xxi",
+        "vendido_europa",
+      ],
+      "juan manuel sanabria": [
+        "nacional",
+        "debut_xxi",
+        "vendido_europa",
+      ],
+      "ramon ariass": [
+        "defensor",
+        "pos_defensor",
+        "debut_xxi",
+      ],
     },
     validatePlayer: function (name, rowCategory, colCategory) {
       const playerName = name.toLowerCase().trim()
@@ -195,6 +401,7 @@ $(document).ready(() => {
     const shuffled = [...arr].sort(() => 0.5 - Math.random())
     return shuffled.slice(0, count)
   }
+ // spread operator
 
   function findPlayersForCombination(cat1Id, cat2Id) {
     // Encontramos jugadores que coincidan con las categorias proporcionadas
@@ -289,7 +496,7 @@ $(document).ready(() => {
       `
       boardElement
         .find(`.square[data-index=${index}]`)
-        .html(squareContent) // Use .html() to insert the new structure
+        .html(squareContent) 
         .addClass(`filled ${symbolClass}`)
     }
 
@@ -363,6 +570,7 @@ $(document).ready(() => {
       selectedSquare: null,    // Indice de la celda seleccionada
       turnTimer: null,        // Temporizador del turno
       timeLeft: 45,          // Tiempo restante para el turno actual
+      usedPlayers: new Set(),
     },
 
     init: function () {
@@ -371,11 +579,11 @@ $(document).ready(() => {
       this.bindEvents()
     },
 
+
     bindEvents: function () {
       // Vinculamos los eventos de interaccion con el tablero y los botones
       $("#game-board").on("click", ".square:not(.filled)", (e) => {
         if (this.state.isGameOver) return       // No permite interaccion si el juego ha terminado
-        this.stopTurnTimer()                   // Se detiene el temporizador del turno
         const index = $(e.currentTarget).data("index")  // Obtenemos el indice de la ceulda seleccionada
         this.handleSquareClick(index)         // manejamos el clic en la celda
       })
@@ -396,7 +604,6 @@ $(document).ready(() => {
 
       $("#cancel-button").on("click", () => {
         GameUI.hideDialog() // Ocultamos el cuadro de dialogo
-        this.startTurnTimer() // Reanudamos el temporizador del turno si se cancela
       })
     },
 
@@ -434,6 +641,14 @@ $(document).ready(() => {
         return
       }
 
+      const playerNameNormalized = playerName.trim().toLowerCase()
+      if (this.state.usedPlayers.has(playerNameNormalized)) {
+        GameUI.showToast("Jugador ya utilizado. Elegí otro.", "error")
+        GameUI.hideDialog()
+        this.startTurnTimer()
+        return
+      }
+
       const index = this.state.selectedSquare
       const rowCat = GameData.rowCategories[Math.floor(index / 3)].id // obtenemos la categoria de la fila
       const colCat = GameData.colCategories[index % 3].id  // obtenemos la categoria de la columna
@@ -442,6 +657,7 @@ $(document).ready(() => {
         // Valida si el jugador cumple con las categorías seleccionadas
         this.state.board[index] = this.state.currentPlayer  // Marcamos la celda con el jugador actual
         GameUI.updateSquare(index, this.state.currentPlayer, playerName) // Actualizamos la celda en la interfaz
+        this.state.usedPlayers.add(playerNameNormalized)
         GameUI.showToast("¡Correcto!", "success") // Mostramos mensaje de exito
         if (this.checkEndCondition()) return  // Verificamos si el juego ha terminado
       } else {
@@ -505,11 +721,12 @@ $(document).ready(() => {
 
     resetGame: function () {
       this.stopTurnTimer()
-      generateSolvableGrid() // This is the new key function
+      generateSolvableGrid() 
       this.state.board.fill(null)
       this.state.currentPlayer = "X"
       this.state.isGameOver = false
       this.state.selectedSquare = null
+      this.state.usedPlayers.clear()
       GameUI.renderBoard()
       GameUI.updateStatus(`Siguiente jugador: ❌`)
       this.startTurnTimer()
