@@ -1,328 +1,295 @@
 :root {
-  --bg-color: #111827; /* Gris oscuro 900 */
-  --primary-cell-color: #1f2937; /* Gris oscuro 800 */
-  --secondary-cell-color: #374151; /* Gris oscuro 700 */
-  --border-color: #4b5563; /* Gris oscuro 600 */
-  --text-color: #f9fafb; /* Gris claro 50 */
-  --text-muted-color: #9ca3af; /* Gris 400 */
-  --accent-color: #facc15; /* Amarillo 400 */
-  --x-color: #f87171; /* Rojo 400 */
-  --o-color: #60a5fa; /* Azul 400 */
-  --winner-bg: #eab308; /* Amarillo 600 */
-  --info-color: #3b82f6; /* Azul 500 */
-  --timer-color: #e5e7eb; /* Gris 200 */
-  --timer-low-color: #ef4444; /* Rojo 500 */
+  --bg-color: #111827; /* Gris oscuro 900 - Fondo principal de la app */
+  --primary-cell-color: #1f2937; /* Gris oscuro 800 - Fondo de celdas principales */
+  --secondary-cell-color: #374151; /* Gris oscuro 700 - Fondo de celdas secundarias o hover */
+  --border-color: #4b5563; /* Gris oscuro 600 - Color de bordes */
+  --text-color: #f9fafb; /* Gris claro 50 - Color principal del texto */
+  --text-muted-color: #9ca3af; /* Gris 400 - Texto secundario o deshabilitado */
+  --accent-color: #facc15; /* Amarillo 400 - Color de acento para botones y títulos */
+  --x-color: #f87171; /* Rojo 400 - Color para la X */
+  --o-color: #60a5fa; /* Azul 400 - Color para la O */
+  --winner-bg: #eab308; /* Amarillo 600 - Fondo para las celdas ganadoras */
+  --info-color: #3b82f6; /* Azul 500 - Color informativo (no usado directamente) */
+  --timer-color: #e5e7eb; /* Gris 200 - Color del temporizador normal */
+  --timer-low-color: #ef4444; /* Rojo 500 - Color del temporizador bajo */
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
-  box-sizing: border-box;
+  font-family: "Roboto", sans-serif; /* Fuente moderna y legible */
+  background-color: var(--bg-color); /* Fondo oscuro definido en variables */
+  color: var(--text-color); /* Color del texto principal */
+  margin: 0; /* Elimina márgenes por defecto */
+  display: flex; /* Habilita Flexbox para centrar contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  min-height: 100vh; /* Ocupa toda la altura del viewport */
+  padding: 1rem; /* Espaciado interno */
+  box-sizing: border-box; /* Incluye padding y borde en el cálculo de tamaño */
 }
 
 .container {
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 900px; /* Limita el ancho máximo para pantallas grandes */
+  text-align: center; /* Centra el texto y contenido */
 }
 
 .game-header h1 {
-  font-size: 2.5rem;
-  color: var(--accent-color);
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem; /* Tamaño grande para el título */
+  color: var(--accent-color); /* Usa el color de acento */
+  margin-bottom: 0.5rem; /* Espacio inferior */
 }
 
 .game-header p {
-  color: var(--text-muted-color);
-  margin-top: 0;
-  font-size: 1.2rem;
+  color: var(--text-muted-color); /* Texto secundario */
+  margin-top: 0; /* Sin margen superior */
+  font-size: 1.2rem; /* Tamaño de fuente mediano */
 }
 
 #game-area {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
+  display: flex; /* Usa Flexbox para organizar elementos */
+  flex-direction: column; /* Organiza en columna */
+  align-items: center; /* Centra horizontalmente los hijos */
+  gap: 1.5rem; /* Espacio entre elementos hijos */
+  margin-top: 2rem; /* Separación superior */
 }
 
 #game-board {
-  display: grid;
-  /* Fixed size for headers, flexible for the rest */
-  grid-template-columns: 130px repeat(3, 1fr);
-  grid-template-rows: 130px repeat(3, 1fr);
-  gap: 0.5rem;
-  width: 100%;
-  max-width: 600px; /* Increased max-width for better layout */
-  aspect-ratio: 1 / 1;
+  display: grid; /* Usa CSS Grid para el tablero */
+  grid-template-columns: 130px repeat(3, 1fr); /* Primera columna ancha para headers, 3 columnas iguales para el juego */
+  grid-template-rows: 130px repeat(3, 1fr); /* Primera fila ancha para headers, 3 filas iguales */
+  gap: 0.5rem; /* Espacio entre celdas */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 600px; /* Limita el ancho máximo */
+  aspect-ratio: 1 / 1; /* Mantiene el tablero cuadrado */
 }
 
 .grid-cell {
-  background-color: var(--primary-cell-color);
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem;
-  flex-direction: column;
-  text-align: center;
+  background-color: var(--primary-cell-color); /* Fondo de la celda */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  display: flex; /* Flex para centrar contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  padding: 0.5rem; /* Espaciado interno */
+  flex-direction: column; /* Organiza contenido en columna */
+  text-align: center; /* Centra el texto */
 }
 
 .header-cell {
-  font-weight: bold;
+  font-weight: bold; /* Texto en negrita para encabezados */
 }
 
 .header-cell img {
-  width: 50%;
-  max-width: 50px;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
+  width: 50%; /* Imagen ocupa la mitad del ancho de la celda */
+  max-width: 50px; /* Limita el tamaño máximo de la imagen */
+  height: auto; /* Mantiene la proporción */
+  object-fit: contain; /* Ajusta la imagen sin recortar */
+  margin-bottom: 0.5rem; /* Espacio inferior */
 }
 
 .header-cell .header-text {
-  font-size: 1rem;
-  color: var(--text-muted-color);
-  line-height: 1.2;
+  font-size: 1rem; /* Tamaño de fuente estándar */
+  color: var(--text-muted-color); /* Color de texto atenuado */
+  line-height: 1.2; /* Altura de línea ajustada */
 }
 
 .square {
-  cursor: pointer;
-  font-size: 3rem;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  border: 2px solid transparent;
-  line-height: 1;
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  font-size: 3rem; /* Tamaño grande para los símbolos */
+  font-weight: bold; /* Símbolos en negrita */
+  transition: background-color 0.2s ease; /* Transición suave del fondo */
+  border: 2px solid transparent; /* Borde invisible por defecto */
+  line-height: 1; /* Altura de línea ajustada */
 }
 
 .square:hover:not(.filled) {
-  background-color: var(--secondary-cell-color);
+  background-color: var(--secondary-cell-color); /* Fondo distinto al hacer hover si no está llena */
 }
 
 .square.x-symbol {
-  color: var(--x-color);
+  color: var(--x-color); /* Color rojo para la X */
 }
 .square.o-symbol {
-  color: var(--o-color);
+  color: var(--o-color); /* Color azul para la O */
 }
 
 .square.winner {
-  background-color: var(--winner-bg);
-  color: var(--bg-color);
-  transform: scale(1.05);
-  border-color: var(--accent-color);
+  background-color: var(--winner-bg); /* Fondo amarillo para la celda ganadora */
+  color: var(--bg-color); /* Texto oscuro sobre fondo claro */
+  transform: scale(1.05); /* Efecto de agrandar ligeramente */
+  border-color: var(--accent-color); /* Borde con color de acento */
 }
 
 .game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+  display: flex; /* Flex para organizar info */
+  flex-direction: column; /* En columna */
+  gap: 1rem; /* Espacio entre elementos */
+  align-items: center; /* Centra horizontalmente */
 }
 
 #game-status {
-  font-size: 1.5rem;
-  font-weight: bold;
-  background-color: var(--primary-cell-color);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  font-size: 1.5rem; /* Tamaño grande para el estado */
+  font-weight: bold; /* Texto en negrita */
+  background-color: var(--primary-cell-color); /* Fondo oscuro */
+  padding: 0.75rem 1.5rem; /* Espaciado interno */
+  border-radius: 0.5rem; /* Bordes redondeados */
 }
 
 #timer {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--timer-color);
-  transition: color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2rem; /* Tamaño del temporizador */
+  font-weight: bold; /* Texto en negrita */
+  color: var(--timer-color); /* Color normal del temporizador */
+  transition: color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
 }
 
 #timer.low-time {
-  color: var(--timer-low-color);
-  transform: scale(1.05);
+  color: var(--timer-low-color); /* Cambia a rojo cuando queda poco tiempo */
+  transform: scale(1.05); /* Efecto de agrandar */
 }
 
 .game-buttons {
-  display: flex;
-  gap: 1rem;
+  display: flex; /* Flex para botones */
+  gap: 1rem; /* Espacio entre botones */
 }
 
 .game-buttons button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: var(--secondary-cell-color);
-  color: var(--text-color);
-  cursor: pointer;
-  transition: all 0.2s ease;
+  padding: 0.75rem 1.5rem; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  font-weight: bold; /* Texto en negrita */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  border: none; /* Sin borde */
+  background-color: var(--secondary-cell-color); /* Fondo gris */
+  color: var(--text-color); /* Texto claro */
+  cursor: pointer; /* Cursor de puntero */
+  transition: all 0.2s ease; /* Transición suave */
 }
 
 .game-buttons button#reset-button {
-  background-color: var(--accent-color);
-  color: var(--bg-color);
+  background-color: var(--accent-color); /* Fondo amarillo para el botón de reinicio */
+  color: var(--bg-color); /* Texto oscuro */
 }
 
 .game-buttons button:hover {
-  filter: brightness(1.15);
-  transform: translateY(-2px);
+  filter: brightness(1.15); /* Aumenta el brillo al hacer hover */
+  transform: translateY(-2px); /* Efecto de levantar el botón */
 }
 
 .game-footer {
-  margin-top: 3rem;
-  color: var(--text-muted-color);
-  font-size: 0.9rem;
+  margin-top: 3rem; /* Separación superior */
+  color: var(--text-muted-color); /* Color de texto atenuado */
+  font-size: 0.9rem; /* Tamaño pequeño */
 }
 
-/* Dialog Styles */
 .dialog-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  position: fixed; /* Fija el overlay en la pantalla */
+  top: 0; /* Desde arriba */
+  left: 0; /* Desde la izquierda */
+  width: 100%; /* Cubre todo el ancho */
+  height: 100%; /* Cubre toda la altura */
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  display: flex; /* Centra el diálogo */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  z-index: 1000; /* Encima de todo */
 }
 
 .dialog-content {
-  background-color: var(--primary-cell-color);
-  padding: 2rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  width: 90%;
-  max-width: 400px;
-  text-align: left;
+  background-color: var(--primary-cell-color); /* Fondo oscuro */
+  padding: 2rem; /* Espaciado interno */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  border: 1px solid var(--border-color); /* Borde gris */
+  width: 90%; /* Ancho relativo */
+  max-width: 400px; /* Ancho máximo */
+  text-align: left; /* Texto alineado a la izquierda */
 }
 
 .dialog-content h2 {
-  margin-top: 0;
+  margin-top: 0; /* Sin margen superior */
 }
 .dialog-content p {
-  color: var(--text-muted-color);
+  color: var(--text-muted-color); /* Texto atenuado */
 }
 
 #player-name-input {
-  width: 100%;
-  padding: 0.75rem;
-  margin: 1rem 0;
-  border-radius: 0.25rem;
-  border: 1px solid var(--border-color);
-  background-color: var(--secondary-cell-color);
-  color: var(--text-color);
-  font-size: 1rem;
-  box-sizing: border-box;
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 0.75rem; /* Espaciado interno */
+  margin: 1rem 0; /* Margen vertical */
+  border-radius: 0.25rem; /* Bordes ligeramente redondeados */
+  border: 1px solid var(--border-color); /* Borde gris */
+  background-color: var(--secondary-cell-color); /* Fondo gris intermedio */
+  color: var(--text-color); /* Texto claro */
+  font-size: 1rem; /* Tamaño estándar */
+  box-sizing: border-box; /* Incluye padding y borde en el tamaño */
 }
 
 .dialog-buttons {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
+  display: flex; /* Flex para botones */
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 0.5rem; /* Espacio entre botones */
 }
 
 .dialog-buttons button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  font-weight: bold;
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 0.25rem; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de puntero */
+  font-weight: bold; /* Texto en negrita */
 }
 
 .dialog-buttons button[type="submit"] {
-  background-color: var(--accent-color);
-  color: var(--bg-color);
+  background-color: var(--accent-color); /* Fondo amarillo para submit */
+  color: var(--bg-color); /* Texto oscuro */
 }
 
 .dialog-buttons button[type="button"] {
-  background-color: var(--secondary-cell-color);
-  color: var(--text-color);
+  background-color: var(--secondary-cell-color); /* Fondo gris para cancelar */
+  color: var(--text-color); /* Texto claro */
 }
-
 .hidden {
-  display: none;
-}
-
-/* Toast Notification */
-#toast-container {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.toast {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  color: white;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.toast.success {
-  background-color: #166534;
-} /* Green 800 */
-.toast.error {
-  background-color: #991b1b;
-} /* Red 800 */
-.toast.info {
-  background-color: var(--info-color);
+  display: none; /* Oculta el elemento */
 }
 
 
 .project-label {
-  border: 2px dashed var(--border-color);
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: var(--accent-color);
-  align-items: center;
-  justify-content: center;
+  border: 2px dashed var(--border-color); /* Borde punteado para destacar */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.2rem; /* Tamaño de fuente */
+  color: var(--accent-color); /* Color de acento */
+  align-items: center; /* Centra verticalmente si es flex */
+  justify-content: center; /* Centra horizontalmente si es flex */
 }
 
 .project-label span {
-  transform: rotate(-10deg);
-  display: inline-block;
+  transform: rotate(-10deg); /* Rota el texto para efecto dinámico */
+  display: inline-block; /* Permite la transformación */
 }
 
-
 .square-symbol {
-  font-size: 2.5rem; 
-  line-height: 1;
+  font-size: 2.5rem; /* Tamaño grande para los símbolos */
+  line-height: 1; /* Altura de línea ajustada */
 }
 
 .player-name-label {
-  font-size: 0.7rem;
-  font-weight: normal;
-  color: var(--text-muted-color);
-  margin-top: 4px;
-  text-transform: capitalize;
-  opacity: 0.8;
+  font-size: 0.8rem; /* Tamaño pequeño */
+  font-weight: normal; /* Peso normal */
+  color: var(--text-muted-color); /* Color atenuado */
+  margin-top: 4px; /* Separación superior */
+  text-transform: capitalize; /* Primera letra en mayúscula */
+  opacity: 0.8; /* Opacidad reducida */
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   #game-board {
-    grid-template-columns: 100px repeat(3, 1fr);
-    grid-template-rows: 100px repeat(3, 1fr);
-    max-width: 100%;
+    grid-template-columns: 100px repeat(3, 1fr); /* Columnas más pequeñas en móvil */
+    grid-template-rows: 100px repeat(3, 1fr); /* Filas más pequeñas en móvil */
+    max-width: 100%; /* Permite expandirse en móviles */
   }
   .header-cell .header-text {
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* Texto más pequeño */
   }
   .header-cell img {
-    max-width: 40px;
+    max-width: 40px; /* Imagen más pequeña */
   }
   .square {
-    font-size: 2rem;
+    font-size: 2rem; /* Símbolos más pequeños */
   }
 }

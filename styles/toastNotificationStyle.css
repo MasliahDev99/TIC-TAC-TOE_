@@ -1,0 +1,27 @@
+/* Notificaciones Toast */
+#toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .toast {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .toast.success {
+    background-color: #166534;
+  } /* Green 800 */
+  .toast.error {
+    background-color: #991b1b;
+  } /* Red 800 */
+  .toast.info {
+    background-color: var(--info-color);
+  }

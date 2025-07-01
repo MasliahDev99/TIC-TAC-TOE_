@@ -3,8 +3,6 @@
 
 Este proyecto es una Aplicación de Internet Rica (RIA) que reimagina el clásico juego del Ta-Te-Ti (Tic-Tac-Toe) con una temática centrada en el fútbol sudamericano. Inspirado en experiencias como Futbol11Grid y otros formatos interactivos de trivia futbolera.
 
-
-
 ## 🚀 Características Principales
 
 -   **Tablero Dinámico**: Cada vez que se inicia una "Nueva Partida", el juego selecciona 3 categorías de filas y 3 de columnas de forma aleatoria, garantizando que no haya dos partidas iguales.
@@ -13,6 +11,7 @@ Este proyecto es una Aplicación de Internet Rica (RIA) que reimagina el clásic
 -   **Interfaz Interactiva**: Utiliza un cuadro de diálogo para que los jugadores ingresen sus respuestas y notificaciones "toast" para dar feedback instantáneo (respuesta correcta, incorrecta, tiempo agotado, etc.).
 -   **Funcionalidad de "Saltar Turno"**: Si un jugador no conoce una respuesta o prefiere ceder su turno, puede hacerlo con el botón "Saltar Turno".
 -   **Diseño Responsivo**: La interfaz se adapta a diferentes tamaños de pantalla, permitiendo jugar cómodamente tanto en escritorio como en dispositivos móviles.
+-   **Histórico de Partidas**: Registra todas las partidas jugadas y permite exportar los datos de cada partida en formato JSON para análisis o almacenamiento externo.
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -32,15 +31,11 @@ Este proyecto es una Aplicación de Internet Rica (RIA) que reimagina el clásic
     -   Si es **incorrecto** o el **tiempo se agota**, perderás el turno.
 6.  **Gana la Partida**: El primer jugador que logre alinear tres de sus símbolos en una fila, columna o diagonal, ¡gana la partida!
 7.  **Empate**: Si todas las casillas se llenan y nadie ha ganado, el juego termina en empate.
+8.  **Histórico de Partidas**: Consulta el registro de partidas jugadas y exporta los datos en formato JSON para guardarlos o compartirlos.
 
 ## 📂 Estructura del Proyecto
 
 ![Estructura_proyecto](/Estructura_proyecto.png)
-
-
-
-
-
 
 ## 🔮 Posibles Mejoras a Futuro
 
@@ -48,9 +43,10 @@ Este proyecto es una Aplicación de Internet Rica (RIA) que reimagina el clásic
 -   **Autocompletado de Jugadores**: Mejorar el campo de texto para que sugiera nombres de la base de datos a medida que el usuario escribe.
 -   **Efectos de Sonido**: Incorporar sonidos para eventos clave como hacer una jugada, ganar, perder o cuando el tiempo se está acabando.
 -   **Modo Oscuro/Claro**: Implementar un interruptor para que el usuario pueda elegir entre diferentes temas visuales.
+-   **Conexión a una API Externa**: Integrar una API externa para obtener datos actualizados de jugadores y sus trayectorias, ampliando la base de datos de futbolistas.
 
 ## 👥 Integrantes
 
 1. Felipe Masliah
 2. Franco Pirotto
-3. Matias bidarte
+3. Matias Bidarte

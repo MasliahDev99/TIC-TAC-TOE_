@@ -1,0 +1,254 @@
+{
+    "allCategories": [
+      {
+        "name": "Nacional",
+        "id": "nacional",
+        "image": "../public/assets/nacional.png"
+      },
+      {
+        "name": "Peñarol",
+        "id": "penarol",
+        "image": "../public/assets/penarol.png"
+      },
+      {
+        "name": "Defensor Sp.",
+        "id": "defensor",
+        "image": "../public/assets/defensor.jpg"
+      },
+      {
+        "name": "Danubio",
+        "id": "danubio",
+        "image": "../public/assets/danubio.png"
+      },
+      {
+        "name": "Wanderers",
+        "id": "wanderers",
+        "image": "../public/assets/wanderers.png"
+      },
+      {
+        "name": "Jugó en Italia",
+        "id": "serie_a"
+      },
+      {
+        "name": "Jugó en España",
+        "id": "laliga"
+      },
+      {
+        "name": "Jugó en Argentina",
+        "id": "liga_argentina"
+      },
+      {
+        "name": "Jugó en Brasil",
+        "id": "brasil"
+      },
+      {
+        "name": "Copa Libertadores",
+        "id": "libertadores"
+      },
+      {
+        "name": "Copa Sudamericana",
+        "id": "sudamericana"
+      },
+      {
+        "name": "Campeón Uruguayo",
+        "id": "campeon_uruguayo"
+      },
+      {
+        "name": "Selección Uruguaya",
+        "id": "uruguay_nt"
+      },
+      {
+        "name": "+10 Goles en Selección",
+        "id": "goles_seleccion"
+      },
+      {
+        "name": "Goles en Clásicos",
+        "id": "goles_clasicos"
+      },
+      {
+        "name": "Vendido a Europa",
+        "id": "vendido_europa"
+      },
+      {
+        "name": "Debutó en el S.XXI",
+        "id": "debut_xxi"
+      },
+      {
+        "name": "Zurdo",
+        "id": "zurdo"
+      },
+      {
+        "name": "Defensor",
+        "id": "pos_defensor"
+      },
+      {
+        "name": "Delantero",
+        "id": "pos_delantero"
+      }
+    ],
+    "playerDatabase": {
+      "luis suarez": [
+        "nacional",
+        "vendido_europa",
+        "laliga",
+        "uruguay_nt",
+        "goles_clasicos",
+        "campeon_uruguayo",
+        "goles_seleccion",
+        "debut_xxi",
+        "pos_delantero",
+        "libertadores"
+      ],
+      "diego forlan": [
+        "penarol",
+        "vendido_europa",
+        "laliga",
+        "serie_a",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "goles_seleccion",
+        "pos_delantero",
+        "liga_argentina",
+        "brasil"
+      ],
+      "alvaro recoba": [
+        "nacional",
+        "danubio",
+        "vendido_europa",
+        "serie_a",
+        "uruguay_nt",
+        "goles_clasicos",
+        "campeon_uruguayo",
+        "zurdo",
+        "pos_delantero"
+      ],
+      "edinson cavani": [
+        "danubio",
+        "vendido_europa",
+        "serie_a",
+        "laliga",
+        "uruguay_nt",
+        "goles_seleccion",
+        "debut_xxi",
+        "pos_delantero",
+        "liga_argentina"
+      ],
+      "diego godin": [
+        "nacional",
+        "vendido_europa",
+        "laliga",
+        "serie_a",
+        "uruguay_nt",
+        "goles_seleccion",
+        "debut_xxi",
+        "pos_defensor",
+        "brasil"
+      ],
+      "antonio pacheco": [
+        "penarol",
+        "wanderers",
+        "goles_clasicos",
+        "campeon_uruguayo",
+        "serie_a",
+        "pos_delantero",
+        "zurdo"
+      ],
+      "marcelo zalayeta": [
+        "penarol",
+        "danubio",
+        "vendido_europa",
+        "serie_a",
+        "goles_clasicos",
+        "campeon_uruguayo",
+        "pos_delantero",
+        "debut_xxi"
+      ],
+      "federico valverde": ["penarol", "vendido_europa", "laliga", "uruguay_nt", "debut_xxi", "campeon_uruguayo"],
+      "ronald araujo": ["wanderers", "vendido_europa", "laliga", "uruguay_nt", "debut_xxi", "pos_defensor"],
+      "giorgian de arrascaeta": ["defensor", "vendido_europa", "libertadores", "uruguay_nt", "brasil", "debut_xxi"],
+      "nicolas lodeiro": [
+        "nacional",
+        "vendido_europa",
+        "libertadores",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "debut_xxi",
+        "zurdo"
+      ],
+      "martin caceres": ["defensor", "vendido_europa", "serie_a", "laliga", "uruguay_nt", "debut_xxi", "pos_defensor"],
+      "walter gargano": [
+        "penarol",
+        "danubio",
+        "vendido_europa",
+        "serie_a",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "debut_xxi"
+      ],
+      "sebastian abreu": [
+        "nacional",
+        "defensor",
+        "uruguay_nt",
+        "goles_clasicos",
+        "liga_argentina",
+        "brasil",
+        "laliga",
+        "pos_delantero"
+      ],
+      "ignacio gonzalez": [
+        "danubio",
+        "nacional",
+        "vendido_europa",
+        "laliga",
+        "uruguay_nt",
+        "campeon_uruguayo",
+        "debut_xxi"
+      ],
+      "maximiliano gomez": ["defensor", "vendido_europa", "laliga", "uruguay_nt", "debut_xxi", "pos_delantero"],
+      "cristian rodriguez": [
+        "penarol",
+        "vendido_europa",
+        "uruguay_nt",
+        "goles_seleccion",
+        "campeon_uruguayo",
+        "debut_xxi",
+        "zurdo",
+        "brasil"
+      ],
+      "abel hernandez": ["penarol", "vendido_europa", "serie_a", "uruguay_nt", "debut_xxi", "pos_delantero", "brasil"],
+      "gaston pereiro": ["nacional", "vendido_europa", "serie_a", "uruguay_nt", "campeon_uruguayo", "debut_xxi", "zurdo"],
+      "matias vecino": ["nacional", "serie_a", "uruguay_nt", "vendido_europa", "debut_xxi"],
+      "josema gimenez": ["danubio", "vendido_europa", "laliga", "uruguay_nt", "debut_xxi", "pos_defensor"],
+      "lucas torreira": ["wanderers", "vendido_europa", "serie_a", "laliga", "uruguay_nt", "debut_xxi"],
+      "fernando muslera": ["nacional", "vendido_europa", "uruguay_nt", "campeon_uruguayo", "debut_xxi"],
+      "darwin nuñez": ["penarol", "vendido_europa", "uruguay_nt", "pos_delantero", "debut_xxi"],
+      "rodrigo bentancur": ["danubio", "vendido_europa", "serie_a", "uruguay_nt", "debut_xxi"],
+      "georgian de arrascaeta": ["defensor", "uruguay_nt", "libertadores", "brasil", "debut_xxi"],
+      "nico de la cruz": ["liverpool", "uruguay_nt", "libertadores", "liga_argentina", "debut_xxi"],
+      "sergio rochet": ["nacional", "uruguay_nt", "campeon_uruguayo", "debut_xxi"],
+      "facundo pellistri": ["penarol", "uruguay_nt", "vendido_europa", "debut_xxi"],
+      "facundo torres": ["penarol", "uruguay_nt", "vendido_europa", "debut_xxi"],
+      "brian rodriguez": ["penarol", "uruguay_nt", "vendido_europa", "debut_xxi"],
+      "martin satriano": ["nacional", "uruguay_nt", "serie_a", "vendido_europa", "debut_xxi"],
+      "andres scotti": ["nacional", "uruguay_nt", "campeon_uruguayo", "pos_defensor"],
+      "egidio arevalo rios": ["penarol", "uruguay_nt", "campeon_uruguayo", "brasil", "liga_argentina", "debut_xxi"],
+      "diego lugano": ["nacional", "uruguay_nt", "pos_defensor", "brasil", "vendido_europa", "goles_seleccion"],
+      "martin silva": ["defensor", "uruguay_nt", "campeon_uruguayo", "libertadores", "debut_xxi"],
+      "jorge fucile": ["nacional", "uruguay_nt", "campeon_uruguayo", "debut_xxi", "pos_defensor"],
+      "sebastian coates": ["nacional", "uruguay_nt", "pos_defensor", "vendido_europa", "campeon_uruguayo", "debut_xxi"],
+      "guillermo varela": ["penarol", "uruguay_nt", "debut_xxi", "vendido_europa", "pos_defensor"],
+      "diego rossi": ["penarol", "uruguay_nt", "vendido_europa", "debut_xxi", "pos_delantero"],
+      "jonathan rodriguez": ["penarol", "uruguay_nt", "vendido_europa", "campeon_uruguayo", "pos_delantero", "debut_xxi"],
+      "nicolas de la cruz": ["liverpool", "uruguay_nt", "liga_argentina", "libertadores", "debut_xxi"],
+      "mauricio pereyra": ["nacional", "vendido_europa", "debut_xxi"],
+      "rodrigo lopez": ["danubio", "goles_clasicos", "liga_argentina", "pos_delantero"],
+      "pablo garcia": ["penarol", "uruguay_nt", "campeon_uruguayo", "serie_a", "vendido_europa", "zurdo"],
+      "richard morales": ["nacional", "uruguay_nt", "campeon_uruguayo", "goles_seleccion", "pos_delantero"],
+      "gonzalo de los santos": ["penarol", "uruguay_nt", "laliga", "campeon_uruguayo"],
+      "nicolas oliva": ["danubio", "pos_defensor", "campeon_uruguayo"],
+      "ignacio laquintana": ["defensor", "debut_xxi", "vendido_europa"],
+      "juan manuel sanabria": ["nacional", "debut_xxi", "vendido_europa"],
+      "ramon ariass": ["defensor", "pos_defensor", "debut_xxi"]
+    }
+  }
+  
