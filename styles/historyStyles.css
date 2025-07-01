@@ -5,7 +5,7 @@
     max-height: 80vh;
     overflow-y: auto;
   }
-  
+  /*Estilos para la cabecera del historico.*/
   .history-header {
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 1rem;
   }
-  
+  /* Estilos para el boton de cierre */
   .close-btn {
     background: none;
     border: none;
@@ -35,7 +35,7 @@
     color: var(--text-color);
     
   }
-  
+  /*Estilo para la seccion  estadísticas */
   .statistics-section {
     margin-bottom: 2rem;
   }
@@ -79,7 +79,7 @@
   .stat-item.draws .stat-number {
     color: var(--info-color);
   }
-  
+  /* Estilos para la sección de partidas */
   .matches-section {
     margin-bottom: 2rem;
   }
@@ -157,7 +157,7 @@
     padding-top: 1rem;
     border-top: 1px solid var(--border-color);
   }
-  
+  /* Estilo para boton de peligro (rojo) */
   .danger-btn {
     background-color: #dc2626;
     color: white;
@@ -183,7 +183,7 @@
     filter: brightness(1.1);
   }
   
-  /* Loading Dialog */
+  /* carga del cuadro de dialogo*/
   .loading-content {
     text-align: center;
     padding: 2rem;
@@ -199,6 +199,8 @@
     margin: 0 auto 1rem;
   }
   
+  
+  
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -208,7 +210,8 @@
     }
   }
   
-  /* History button styling */
+  /* botones del historico */ 
+  
   #history-button {
     background-color: var(--info-color);
     color: white;
