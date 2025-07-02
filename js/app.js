@@ -510,16 +510,18 @@ $(document).ready(() => {
 
     handlePlayerSubmit: function (playerName) {
       // Manejamos el envio del nombre del jugador
-      if (!playerName.trim() || this.state.selectedSquare === null) {
+      if (!playerName.trim() || this.state.selectedSquare === null || this.state.isGameOver) {
         GameUI.hideDialog() // oculta el cuadro de dialogo si no hay nombre o celda seleccionada
         return
       }
+      
+
 
       const playerNameNormalized = playerName.trim().toLowerCase()
       if (this.state.usedPlayers.has(playerNameNormalized)) {
         GameUI.showToast("Jugador ya utilizado. Elegí otro.", "error")
         GameUI.hideDialog()
-        this.startTurnTimer()
+        this.switchPlayer()
         return
       }
 
@@ -538,7 +540,9 @@ $(document).ready(() => {
           position: index,
         })
         GameUI.showToast("¡Correcto!", "success") // Mostramos mensaje de exito
-        if (this.checkEndCondition()) return // Verificamos si el juego ha terminado
+        if (this.checkEndCondition()) { // Cundo detecta que se termino la partida se cierra el cuadro de dialogo
+          GameUI.hideDialog() 
+        }
       } else {
         GameUI.showToast("¡Incorrecto! Turno perdido.", "error") // Muestra mensaje de error
       }
