@@ -16,6 +16,7 @@ INTEGRANTES:
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="/styles/historyStyles.css">
     <link rel="stylesheet" href="/styles/toastNotificationStyle.css">
+    <link rel="stylesheet" href="/styles/autoCompleteStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -57,7 +58,10 @@ INTEGRANTES:
             <form id="player-input-form">
                 <h2>Ingresar Jugador</h2>
                 <p>Escribe el nombre de un jugador que cumpla ambas condiciones.</p>
-                <input type="text" id="player-name-input" placeholder="Ej: Luis Suárez" required autocomplete="off">
+                <div class="input-container">
+                    <input type="text" id="player-name-input" placeholder="Ej: Luis Suárez" required autocomplete="off">
+                    <div id="player-suggestions" class="suggestions-dropdown hidden"></div>
+                </div>
                 <div class="dialog-buttons">
                     <button type="button" id="cancel-button">Cancelar</button>
                     <button type="submit">Confirmar</button>

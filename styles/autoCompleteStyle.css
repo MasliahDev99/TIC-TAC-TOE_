@@ -1,0 +1,175 @@
+/* =================================
+   ESTILOS DEL AUTOCOMPLETADO
+   ================================= */
+
+/* Contenedor del input con dropdown */
+.input-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Dropdown de sugerencias */
+  .suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--secondary-cell-color);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 0.25rem 0.25rem;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1001;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Elemento individual de sugerencia */
+  .suggestion-item {
+    padding: 0.75rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Último elemento sin borde inferior */
+  .suggestion-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Estados hover y resaltado */
+  .suggestion-item:hover,
+  .suggestion-item.highlighted {
+    background-color: var(--primary-cell-color);
+  }
+  
+  /* Estado seleccionado */
+  .suggestion-item.selected {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+  }
+  
+  /* Nombre del jugador */
+  .player-name {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  /* Equipos del jugador */
+  .player-teams {
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+    opacity: 0.8;
+  }
+  
+  /* Equipos cuando está seleccionado */
+  .suggestion-item.selected .player-teams {
+    color: var(--bg-color);
+    opacity: 0.9;
+  }
+  
+  /* Mensaje cuando no hay resultados */
+  .no-results {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted-color);
+    font-style: italic;
+  }
+  
+  /* Icono del mensaje sin resultados */
+  .no-results-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  /* Ajustar el input para que funcione bien con el dropdown */
+  #player-name-input {
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  
+  /* Cuando el dropdown está visible, ajustar bordes */
+  #player-name-input:focus + .suggestions-dropdown:not(.hidden),
+  .suggestions-dropdown:not(.hidden) {
+    border-radius: 0 0 0.25rem 0.25rem;
+  }
+  
+  /* Ajuste adicional para el input cuando el dropdown está visible */
+  .suggestions-dropdown:not(.hidden) ~ #player-name-input {
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+  
+  /* Scrollbar personalizado para el dropdown */
+  .suggestions-dropdown::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .suggestions-dropdown::-webkit-scrollbar-track {
+    background: var(--primary-cell-color);
+  }
+  
+  .suggestions-dropdown::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+  
+  .suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted-color);
+  }
+  
+  /* Animación suave para mostrar/ocultar dropdown */
+  .suggestions-dropdown {
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  
+  .suggestions-dropdown:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+    .suggestions-dropdown {
+      max-height: 150px;
+    }
+  
+    .suggestion-item {
+      padding: 0.6rem;
+    }
+  
+    .player-name {
+      font-size: 0.9rem;
+    }
+  
+    .player-teams {
+      font-size: 0.75rem;
+    }
+  }
+  
+  /* Estados de carga para el dropdown */
+  .suggestions-dropdown.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .loading-text {
+    color: var(--text-muted-color);
+    font-style: italic;
+  }
+  
+  /* Efecto de resaltado para coincidencias */
+  .suggestion-item .highlight {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.2rem;
+    font-weight: bold;
+  }
+  

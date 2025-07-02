@@ -1,4 +1,4 @@
-// jquery
+// jQuery
 const $ = window.jQuery
 
 $(document).ready(() => {
@@ -35,7 +35,7 @@ $(document).ready(() => {
   }
 
   // =================================
-  // GAME HISTORY 
+  // GAME HISTORY
   // =================================
   const GameHistory = {
     // Cargar histórico desde localStorage
@@ -142,14 +142,14 @@ $(document).ready(() => {
   // HELPER FUNCTIONS
   // =================================
   function shuffleAndPick(arr, count) {
-    // Mezclamos el arreglo y seleccionamos una cantidad especifica de elementos
+    // Mezclamos el arreglo y seleccionamos una cantidad específica de elementos
     const shuffled = [...arr].sort(() => 0.5 - Math.random())
     return shuffled.slice(0, count)
   }
-  // spread operator
+  // operador spread
 
   function findPlayersForCombination(cat1Id, cat2Id) {
-    // Encontramos jugadores que coincidan con las categorias proporcionadas
+    // Encontramos jugadores que coincidan con las categorías proporcionadas
     return Object.keys(GameData.playerDatabase).filter((player) => {
       const playerData = GameData.playerDatabase[player]
       return playerData.includes(cat1Id) && playerData.includes(cat2Id)
@@ -157,7 +157,7 @@ $(document).ready(() => {
   }
 
   function generateSolvableGrid() {
-    // Generamos una cuadricula que sea resolvible
+    // Generamos una cuadrícula que sea resolvible
     let isSolvable = false
     let selectedCategories, tempRows, tempCols
 
@@ -167,12 +167,12 @@ $(document).ready(() => {
       tempRows = selectedCategories.slice(0, 3)
       tempCols = selectedCategories.slice(3, 6)
 
-      // Verificamos cada una de las 9 celdas para al menos un jugador valido
+      // Verificamos cada una de las 9 celdas para al menos un jugador válido
       for (const rowCat of tempRows) {
         for (const colCat of tempCols) {
           const players = findPlayersForCombination(rowCat.id, colCat.id)
           if (players.length === 0) {
-            isSolvable = false // Esta cuadricula no es resolvible
+            isSolvable = false // Esta cuadrícula no es resolvible
             break // No es necesario verificar otras columnas
           }
         }
@@ -181,7 +181,7 @@ $(document).ready(() => {
         }
       }
     }
-    // Una vez que se encuentre una cuadricula resolvible, asignamos
+    // Una vez que se encuentre una cuadrícula resolvible, asignamos
     GameData.rowCategories = tempRows
     GameData.colCategories = tempCols
   }
@@ -248,14 +248,21 @@ $(document).ready(() => {
     }
 
     function showDialog() {
-      // Mostramos el cuadro de dialogo para ingresar el nombre del jugador
+      // Mostramos el cuadro de diálogo para ingresar el nombre del jugador
       dialogElement.removeClass("hidden")
       inputElement.focus()
+
+      // Inicializar autocompletado si no está ya inicializado
+      if (!inputElement.data("autocomplete-initialized")) {
+        initPlayerAutocomplete()
+        inputElement.data("autocomplete-initialized", true)
+      }
     }
 
     function hideDialog() {
-      // ocultamos el cuadro del dialogo
+      // Ocultamos el cuadro del diálogo
       inputElement.val("")
+      $("#player-suggestions").addClass("hidden")
       dialogElement.addClass("hidden")
     }
 
@@ -352,7 +359,7 @@ $(document).ready(() => {
                     </div>
                     <div class="match-info">
                       <div class="match-date">${new Date(match.date).toLocaleDateString("es-ES")}</div>
-                      <div class="match-players">${match.playersUsed.length} jugadas usados</div>
+                      <div class="match-players">${match.playersUsed.length} jugadores usados</div>
                     </div>
                     <div class="match-duration">${Math.floor(match.duration / 60)}:${(match.duration % 60).toString().padStart(2, "0")}</div>
                   </div>
@@ -403,6 +410,166 @@ $(document).ready(() => {
       })
     }
 
+    // Nuevas funciones para el autocompletado
+    function initPlayerAutocomplete() {
+      const inputElement = $("#player-name-input")
+      const suggestionsElement = $("#player-suggestions")
+      let selectedIndex = -1
+      let currentSuggestions = []
+
+      // Función para buscar jugadores que coincidan
+      function searchPlayers(query) {
+        if (!query || query.length < 2) return []
+
+        const normalizedQuery = query.toLowerCase().trim()
+        const matchingPlayers = []
+
+        Object.keys(GameData.playerDatabase).forEach((playerName) => {
+          if (playerName.includes(normalizedQuery)) {
+            matchingPlayers.push({
+              name: playerName,
+              displayName: playerName
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" "),
+            })
+          }
+        })
+
+        // Ordenar por relevancia (coincidencias exactas primero)
+        return matchingPlayers
+          .sort((a, b) => {
+            const aStartsWith = a.name.startsWith(normalizedQuery)
+            const bStartsWith = b.name.startsWith(normalizedQuery)
+
+            if (aStartsWith && !bStartsWith) return -1
+            if (!aStartsWith && bStartsWith) return 1
+
+            return a.name.localeCompare(b.name)
+          })
+          .slice(0, 8) // Limitar a 8 resultados
+      }
+
+      // Función para mostrar sugerencias
+      function showSuggestions(suggestions) {
+        currentSuggestions = suggestions
+        selectedIndex = -1
+
+        if (suggestions.length === 0) {
+          const query = inputElement.val().trim()
+          if (query.length >= 2) {
+            suggestionsElement
+              .html(`
+              <div class="no-results">
+                <span class="no-results-icon">🔍</span>
+                No existe "${query}" en nuestra BD
+              </div>
+            `)
+              .removeClass("hidden")
+          } else {
+            suggestionsElement.addClass("hidden")
+          }
+          return
+        }
+
+        const suggestionsHtml = suggestions
+          .map(
+            (player, index) => `
+    <div class="suggestion-item" data-index="${index}" data-player="${player.name}">
+      <span class="player-name">${player.displayName}</span>
+    </div>
+  `,
+          )
+          .join("")
+
+        suggestionsElement.html(suggestionsHtml).removeClass("hidden")
+      }
+
+      // Función para ocultar sugerencias
+      function hideSuggestions() {
+        suggestionsElement.addClass("hidden")
+        selectedIndex = -1
+        currentSuggestions = []
+      }
+
+      // Función para seleccionar una sugerencia
+      function selectSuggestion(index) {
+        if (index >= 0 && index < currentSuggestions.length) {
+          const selectedPlayer = currentSuggestions[index]
+          inputElement.val(selectedPlayer.displayName)
+          hideSuggestions()
+          inputElement.focus()
+        }
+      }
+
+      // Event listeners
+      inputElement.on("input", function () {
+        const query = $(this).val()
+        if (query.length >= 2) {
+          const suggestions = searchPlayers(query)
+          showSuggestions(suggestions)
+        } else {
+          hideSuggestions()
+        }
+      })
+
+      inputElement.on("keydown", (e) => {
+        if (suggestionsElement.hasClass("hidden")) return
+
+        switch (e.key) {
+          case "ArrowDown":
+            e.preventDefault()
+            selectedIndex = Math.min(selectedIndex + 1, currentSuggestions.length - 1)
+            updateHighlight()
+            break
+
+          case "ArrowUp":
+            e.preventDefault()
+            selectedIndex = Math.max(selectedIndex - 1, -1)
+            updateHighlight()
+            break
+
+          case "Enter":
+            if (selectedIndex >= 0) {
+              e.preventDefault()
+              selectSuggestion(selectedIndex)
+            }
+            break
+
+          case "Escape":
+            hideSuggestions()
+            break
+        }
+      })
+
+      // Clic en sugerencias
+      suggestionsElement.on("click", ".suggestion-item", function () {
+        const index = Number.parseInt($(this).data("index"))
+        selectSuggestion(index)
+      })
+
+      // Hover en sugerencias
+      suggestionsElement.on("mouseenter", ".suggestion-item", function () {
+        selectedIndex = Number.parseInt($(this).data("index"))
+        updateHighlight()
+      })
+
+      // Función para actualizar el resaltado
+      function updateHighlight() {
+        suggestionsElement.find(".suggestion-item").removeClass("highlighted")
+        if (selectedIndex >= 0) {
+          suggestionsElement.find(`.suggestion-item[data-index="${selectedIndex}"]`).addClass("highlighted")
+        }
+      }
+
+      // Ocultar sugerencias al hacer clic fuera
+      $(document).on("click", (e) => {
+        if (!$(e.target).closest(".input-container").length) {
+          hideSuggestions()
+        }
+      })
+    }
+
     return {
       renderBoard,
       updateSquare,
@@ -424,10 +591,10 @@ $(document).ready(() => {
   // =================================
   const Game = {
     state: {
-      board: Array(9).fill(null), // Representa el tablero ( 9 celdas vacias)
+      board: Array(9).fill(null), // Representa el tablero (9 celdas vacías)
       currentPlayer: "X", // Jugador actual (❌ o ⭕️)
       isGameOver: false, // Indica si el juego ha terminado
-      selectedSquare: null, // Indice de la celda seleccionada
+      selectedSquare: null, // Índice de la celda seleccionada
       turnTimer: null, // Temporizador del turno
       timeLeft: 45, // Tiempo restante para el turno actual
       usedPlayers: new Set(),
@@ -451,17 +618,17 @@ $(document).ready(() => {
     },
 
     bindEvents: function () {
-      // Vinculamos los eventos de interaccion con el tablero y los botones
+      // Vinculamos los eventos de interacción con el tablero y los botones
       $("#game-board").on("click", ".square:not(.filled)", (e) => {
-        if (this.state.isGameOver) return // No permite interaccion si el juego ha terminado
-        const index = $(e.currentTarget).data("index") // Obtenemos el indice de la ceulda seleccionada
-        this.handleSquareClick(index) // manejamos el clic en la celda
+        if (this.state.isGameOver) return // No permite interacción si el juego ha terminado
+        const index = $(e.currentTarget).data("index") // Obtenemos el índice de la celda seleccionada
+        this.handleSquareClick(index) // Manejamos el clic en la celda
       })
 
       $("#reset-button").on("click", () => this.resetGame()) // Reseteamos el juego al hacer clic en el botón de reinicio
 
       $("#skip-button").on("click", () => {
-        if (this.state.isGameOver) return // No permite interaccin si el juego ha terminado
+        if (this.state.isGameOver) return // No permite interacción si el juego ha terminado
         GameUI.showToast("Turno saltado", "info") // Muestra mensaje indicando que el turno fue saltado
         this.switchPlayer() // Cambia al siguiente turno
       })
@@ -477,7 +644,7 @@ $(document).ready(() => {
       })
 
       $("#cancel-button").on("click", () => {
-        GameUI.hideDialog() // Ocultamos el cuadro de dialogo
+        GameUI.hideDialog() // Ocultamos el cuadro de diálogo
       })
     },
 
@@ -485,7 +652,7 @@ $(document).ready(() => {
       // Inicia el temporizador del turno
       this.stopTurnTimer() // Detiene cualquier temporizador previo
       this.state.timeLeft = 45 // Reinicia el tiempo restante
-      GameUI.updateTimer(this.state.timeLeft) // actualiza el temporizador en la interfaz
+      GameUI.updateTimer(this.state.timeLeft) // Actualiza el temporizador en la interfaz
       this.state.turnTimer = setInterval(() => {
         this.state.timeLeft--
         GameUI.updateTimer(this.state.timeLeft)
@@ -497,37 +664,35 @@ $(document).ready(() => {
     },
 
     stopTurnTimer: function () {
-      // detiene el temporizador del turno
+      // Detiene el temporizador del turno
       clearInterval(this.state.turnTimer)
       this.state.turnTimer = null
     },
 
     handleSquareClick: function (index) {
       // Manejamos el clic en una celda del tablero
-      this.state.selectedSquare = index // Guarda el indice de la celda seleccionada
-      GameUI.showDialog() // muestr el cuadro de dialogo para ingreesar nombre
+      this.state.selectedSquare = index // Guarda el índice de la celda seleccionada
+      GameUI.showDialog() // Muestra el cuadro de diálogo para ingresar nombre
     },
 
     handlePlayerSubmit: function (playerName) {
-      // Manejamos el envio del nombre del jugador
-      if (!playerName.trim() || this.state.selectedSquare === null || this.state.isGameOver) {
-        GameUI.hideDialog() // oculta el cuadro de dialogo si no hay nombre o celda seleccionada
+      // Manejamos el envío del nombre del jugador
+      if (!playerName.trim() || this.state.selectedSquare === null) {
+        GameUI.hideDialog() // Oculta el cuadro de diálogo si no hay nombre o celda seleccionada
         return
       }
-      
-
 
       const playerNameNormalized = playerName.trim().toLowerCase()
       if (this.state.usedPlayers.has(playerNameNormalized)) {
-        GameUI.showToast("Jugador ya utilizado. Elegí otro.", "error")
+        GameUI.showToast("Este jugador ya fue utilizado. Turno perdido.", "error")
         GameUI.hideDialog()
         this.switchPlayer()
         return
       }
 
       const index = this.state.selectedSquare
-      const rowCat = GameData.rowCategories[Math.floor(index / 3)].id // obtenemos la categoria de la fila
-      const colCat = GameData.colCategories[index % 3].id // obtenemos la categoria de la columna
+      const rowCat = GameData.rowCategories[Math.floor(index / 3)].id // Obtenemos la categoría de la fila
+      const colCat = GameData.colCategories[index % 3].id // Obtenemos la categoría de la columna
 
       if (GameData.validatePlayer(playerName, rowCat, colCat)) {
         // Valida si el jugador cumple con las categorías seleccionadas
@@ -539,8 +704,8 @@ $(document).ready(() => {
           player: this.state.currentPlayer,
           position: index,
         })
-        GameUI.showToast("¡Correcto!", "success") // Mostramos mensaje de exito
-        if (this.checkEndCondition()) { // Cundo detecta que se termino la partida se cierra el cuadro de dialogo
+        GameUI.showToast("¡Correcto!", "success") // Mostramos mensaje de éxito
+        if (this.checkEndCondition()) { // si se termino la partida, se oculta el dialogo
           GameUI.hideDialog() 
         }
       } else {
@@ -552,10 +717,10 @@ $(document).ready(() => {
     },
 
     switchPlayer: function () {
-      // cambia al siguiente jugador
+      // Cambia al siguiente jugador
       if (this.state.isGameOver) return
-      this.state.currentPlayer = this.state.currentPlayer === "X" ? "O" : "X" // alterna ente X o 0
-      GameUI.updateStatus(`Siguiente jugador: ${this.state.currentPlayer === "X" ? "❌" : "⭕"}`) // actualiza el estado en la interfaz
+      this.state.currentPlayer = this.state.currentPlayer === "X" ? "O" : "X" // Alterna entre X o O
+      GameUI.updateStatus(`Siguiente jugador: ${this.state.currentPlayer === "X" ? "❌" : "⭕"}`) // Actualiza el estado en la interfaz
       this.startTurnTimer() // Reinicia el temporizador para el nuevo turno
     },
 
@@ -591,7 +756,7 @@ $(document).ready(() => {
         winningLine: winningLine,
       }
 
-      // Guardar usando AJAX
+      // Guardar usando localStorage
       GameHistory.saveGameResult(gameResult)
     },
 
@@ -600,10 +765,10 @@ $(document).ready(() => {
         [0, 1, 2], // FILAS
         [3, 4, 5],
         [6, 7, 8],
-        [0, 3, 6], // Columnas
+        [0, 3, 6], // COLUMNAS
         [1, 4, 7],
         [2, 5, 8],
-        [0, 4, 8], // Diagonales
+        [0, 4, 8], // DIAGONALES
         [2, 4, 6],
       ]
       for (const line of lines) {
